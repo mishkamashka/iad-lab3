@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>index</title>
+    <h:outputStylesheet library="css" name="main.css"/>
+    <h:outputScript library="js" name="clock.js"/>
+    <link rel="shortcut icon" href="#{resource['image/icon.png']}"/>
+</h:head>
+<h:body>
+    <div class="header">
+        <div class="header__block__img">
+            <img src="#{resource['image/bear.png']}" alt="bear" style="width: 43px;"/>
+        </div>
+        <div class="header__block__var">
+            Вариант 28022
+        </div>
+        <div class="header__block__author">
+            Анисимова Мария, P3210
+        </div>
+    </div>
+
+    <div class="all__site__wrap>">
+        <div class="wrap__img__graph">
+            <img src="#{resource['img/task_text_2.png']}"
+                 style="margin-left: 47px" width="400" height="200" alt="task_text_2"/>
+            <img src="#{resource['img/task_img.png']}" width="200" height="200" alt="task_img"/>
+            <img src="#{resource['img/task_text_1.png']}"
+                 style="margin-left: 47px" width="605" height="100" alt="task_text_1"/>
+        </div>
+
+        <div class="wrap__content">
+            <div id="clock" class="clock">
+                <a href="main.xhtml" id="form" class="center_btn">
+                    <input class="submit" type="submit" name="submit" value=" Перейти к форме "/>
+                </a>
+            </div>
+            <a href="main.xhtml" class="clock">
+                <input class="submit" type="submit" name="submit" value=" На главную страницу "/>
+            </a>
+        </div>
+    </div>
+
+    <div class="footer" style="display: none">
+        <div class="footer__block">
+            <p>You should follow me at:</p>
+            <a href="https://vk.com/i___mishkamashka___i">
+                <img class="footer__icon" src="#{resource['image/vk.d89817ac.svg']}" alt="vk"/>
+            </a>
+            <a href="https://github.com/mishkamashka">
+                <img class="footer__icon" src="#{resource['image/github.svg']}" alt="github"/>
+            </a>
+        </div>
+    </div>
+</h:body>
+
+</html>
