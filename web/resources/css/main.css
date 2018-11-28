@@ -1,3 +1,7 @@
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -54,14 +58,15 @@ body {
 .all__site__wrap {
     display: grid;
     padding-top: 100px;
-    grid-template-columns: auto auto;
+    /* grid-template-columns: auto auto; */
     padding-bottom: 40px;
+    height: 100%;
 }
 
 .wrap__img__graph {
-    text-align: center;
-    margin: auto;
-    grid-column-start: 1;
+    /* text-align: center; */
+    /* margin: auto; */
+    /* grid-column-start: 1; */
 }
 
 .wrap__content {
@@ -88,12 +93,11 @@ body {
 }
 
 
-
 div {
     margin-bottom: 5px;
 }
 
-img{
+img {
     border-radius: 10px;
 }
 
@@ -123,19 +127,19 @@ img{
     padding-right: 20px;
 }
 
-.center_names{
+.center_names {
     padding-left: 100px;
 }
 
-.center_pip{
+.center_pip {
     padding-left: 230px;
 }
 
-.center_clock{
+.center_clock {
     padding-left: 300px;
 }
 
-.center_btn{
+.center_btn {
     padding-left: 256px;
 }
 
