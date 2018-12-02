@@ -1,21 +1,26 @@
-
-
-function validate(Y){
+function validate(Y) {
 
     var fail = false;
     var forError = document.getElementById("forError");
 
-    if (Y <= -5 || Y >= 5){ fail = "Y - incorrect value range \n"; }
-    if (isNaN(Y)){ fail = "Y value is incorrect ! \n"; }
-    if (Y == ""){ fail = "Y is empty ! \n"; }
-    if (Y.length > 7){ fail = "Y is too large ! \n"; }
-
-
-    if (fail){
-        forError.innerHTML = "<b>"+fail+"</b>";
-        return false;
+    if (Y <= -5 || Y >= 5) {
+        fail = "Y - incorrect value range \n";
     }
-    else{
+    if (isNaN(Y)) {
+        fail = "Y value is incorrect ! \n";
+    }
+    if (Y == "") {
+        fail = "Y is empty ! \n";
+    }
+    if (Y.length > 7) {
+        fail = "Y is too large ! \n";
+    }
+
+
+    if (fail) {
+        forError.innerHTML = "<b>" + fail + "</b>";
+        return false;
+    } else {
         forError.innerHTML = "";
         return true;
     }
@@ -23,7 +28,7 @@ function validate(Y){
 }
 
 //--------------------------------------------------------------------
-function drawCanwas(id, r){
+function drawCanwas(id, r) {
 
     var canvas = document.getElementById(id),
         context = canvas.getContext("2d");
@@ -36,7 +41,7 @@ function drawCanwas(id, r){
 
     //прямоугольник
     context.beginPath();
-    context.rect(85, 150, 65, 130);
+    context.rect(150, 150, 65, 130);
     context.closePath();
     context.strokeStyle = "blue";
     context.fillStyle = "blue";
@@ -46,7 +51,7 @@ function drawCanwas(id, r){
     // сектор
     context.beginPath();
     context.moveTo(150, 150);
-    context.arc(150, 150, 65, -Math.PI/2, Math.PI, true);
+    context.arc(150, 150, 130, -Math.PI / 2, Math.PI, true);
     context.closePath();
     context.strokeStyle = "blue";
     context.fillStyle = "blue";
@@ -56,8 +61,8 @@ function drawCanwas(id, r){
     //треугольник
     context.beginPath();
     context.moveTo(150, 150);
-    context.lineTo(150, 85);
-    context.lineTo(215, 150);
+    context.lineTo(150, 20);
+    context.lineTo(280, 150);
     context.lineTo(150, 150);
     context.closePath();
     context.strokeStyle = "blue";
@@ -70,25 +75,47 @@ function drawCanwas(id, r){
     context.strokeStyle = "black";
     context.fillStyle = "black";
     context.font = "10px Verdana";
-    context.moveTo(150, 0); context.lineTo(150, 300);
-    context.moveTo(150, 0); context.lineTo(145, 15);
-    context.moveTo(150, 0); context.lineTo(155, 15);
+    context.moveTo(150, 0);
+    context.lineTo(150, 300);
+    context.moveTo(150, 0);
+    context.lineTo(145, 15);
+    context.moveTo(150, 0);
+    context.lineTo(155, 15);
     context.fillText("Y", 160, 10);
-    context.moveTo(0, 150); context.lineTo(300, 150);
-    context.moveTo(300, 150); context.lineTo(285, 145);
-    context.moveTo(300, 150); context.lineTo(285, 155);
+    context.moveTo(0, 150);
+    context.lineTo(300, 150);
+    context.moveTo(300, 150);
+    context.lineTo(285, 145);
+    context.moveTo(300, 150);
+    context.lineTo(285, 155);
     context.fillText("X", 290, 135);
 
     // деления X
-    context.moveTo(145, 20); context.lineTo(155, 20); context.fillText(r, 160, 20);
-    context.moveTo(145, 85); context.lineTo(155, 85); context.fillText((r / 2), 160, 78);
-    context.moveTo(145, 215); context.lineTo(155, 215); context.fillText(-(r / 2), 160, 215);
-    context.moveTo(145, 280); context.lineTo(155, 280); context.fillText(-r, 160, 280);
+    context.moveTo(145, 20);
+    context.lineTo(155, 20);
+    context.fillText(r, 160, 20);
+    context.moveTo(145, 85);
+    context.lineTo(155, 85);
+    context.fillText((r / 2), 160, 78);
+    context.moveTo(145, 215);
+    context.lineTo(155, 215);
+    context.fillText(-(r / 2), 160, 215);
+    context.moveTo(145, 280);
+    context.lineTo(155, 280);
+    context.fillText(-r, 160, 280);
     // деления Y
-    context.moveTo(20, 145); context.lineTo(20, 155); context.fillText(-r, 20, 170);
-    context.moveTo(85, 145); context.lineTo(85, 155); context.fillText(-(r / 2), 70, 170);
-    context.moveTo(215, 145); context.lineTo(215, 155); context.fillText((r / 2), 215, 170);
-    context.moveTo(280, 145); context.lineTo(280, 155); context.fillText(r, 280, 170);
+    context.moveTo(20, 145);
+    context.lineTo(20, 155);
+    context.fillText(-r, 20, 170);
+    context.moveTo(85, 145);
+    context.lineTo(85, 155);
+    context.fillText(-(r / 2), 70, 170);
+    context.moveTo(215, 145);
+    context.lineTo(215, 155);
+    context.fillText((r / 2), 215, 170);
+    context.moveTo(280, 145);
+    context.lineTo(280, 155);
+    context.fillText(r, 280, 170);
 
     context.closePath();
     context.strokeStyle = "black";
@@ -102,8 +129,8 @@ function clicCanvas(canv_Id, R) {
     var left = br.left;
     var top = br.top;
     var event = window.event;
-    var x = event.clientX-left;
-    var y = event.clientY-top;
+    var x = event.clientX - left;
+    var y = event.clientY - top;
     var boolArea = isArea(x, y, R);
     drawPoint(canv_Id, x, y, boolArea);
 }
@@ -111,25 +138,25 @@ function clicCanvas(canv_Id, R) {
 function isArea(x, y, R) {
     x = R * (x - 150) / 130;
     y = R * (150 - y) / 130;
-    if(x<=0 && y>=0 && x*x+y*y<=(R/2)*(R/2)){
+    if (x <= 0 && y >= 0 && x * x + y * y <= R * R) {
         return 'true';
     }
-    if(x>=0 && y>=0 && y<=(-1*x+0.5*R)){
+    if (x >= 0 && y >= 0 && y <= (-1 * x + R / 1)) {
         return 'true';
     }
-    if(x<=0 && y<=0 && x>=(-R/2) && y>=-R){
+    if (x >= 0 && y <= 0 && x <= (R / 2) && y >= -R) {
         return 'true';
     }
     return 'false';
 }
 
-function drawPoint(id, x, y, isArea){
+function drawPoint(id, x, y, isArea) {
     var canvas = document.getElementById(id),
         context = canvas.getContext("2d");
     context.beginPath();
     context.arc(x, y, 2, 0, 2 * Math.PI, false);
     context.closePath();
-    if(isArea === 'true'){
+    if (isArea === 'true') {
         context.strokeStyle = "green";
         context.fillStyle = "green";
     } else {
@@ -140,8 +167,7 @@ function drawPoint(id, x, y, isArea){
     context.stroke();
 }
 
-function convertFromPointToCanvas(canvas, xPoint, yPoint, radius)
-{
+function convertFromPointToCanvas(canvas, xPoint, yPoint, radius) {
     let xCenter = canvas.width / 2;
     let yCenter = canvas.height / 2;
 
